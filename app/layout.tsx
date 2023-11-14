@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Merriweather, Open_Sans } from 'next/font/google'
 import './globals.css'
+import Navbar from './Navbar'
 
-const inter = Inter({ subsets: ['latin'] })
+const merriweather = Merriweather({ subsets: ['latin'] , weight: ["300", "400", "700", "900"], variable: "--font-display", display: 'swap'})
+const openSans = Open_Sans({subsets: ['latin'], variable: "--font-body", display: 'swap'})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,8 +17,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${merriweather.variable} ${openSans.variable}`}>
+      <body className="bg-light-900">
+        <header>
+          <Navbar/>
+        </header>
+        <main>
+          {children}
+        </main>
+        <footer>
+
+        </footer>
+      </body>
     </html>
   )
 }
