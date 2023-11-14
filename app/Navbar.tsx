@@ -1,11 +1,17 @@
 'use client'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HamburgerMenu from "./HamburgerMenu";
 import NavItem from "./NavItem";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const pathname = usePathname()
+
+    useEffect(() => {
+        setMenuOpen(false)
+    }, [pathname])
 
     const menuClicked = () => {
         setMenuOpen(!menuOpen);
@@ -24,7 +30,6 @@ export default function Navbar() {
                 <nav className="fixed w-full h-fit z-10 text-dark-100">
                     <ul>
                         <NavItem href="/">Home</NavItem>
-                        <NavItem href="/blog">Posts</NavItem>
                         <NavItem href="/photos">Photos</NavItem>
                         <NavItem href="/contact">Contact</NavItem>
                     </ul>
