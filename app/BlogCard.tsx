@@ -21,7 +21,7 @@ export default function BlogCard(props: { post: { meta: IPost, slug: string }, p
                     {props.post.meta.title}
                 </h1>
                 <p>{props.post.meta.description}</p>
-                <p>{props.post.meta.date}</p>
+                <p>{props.post.meta.date.toDateString()}</p>
             </Link>
 
         </div>
