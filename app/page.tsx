@@ -2,6 +2,9 @@ import { Suspense } from "react";
 import BlogList from "./BlogList";
 import BlogListSkeleton from "./BlogListSkeleton";
 
+import { type MDXRemoteSerializeResult } from 'next-mdx-remote';
+ 
+
 export default function Home() {
   return (
     <div className="px-4 text-dark-100">

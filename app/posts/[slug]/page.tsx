@@ -1,24 +1,18 @@
 import Image from "next/image"
-import { getPost, getPosts, getSlugs } from '../../blog'
+import { getPost, getSlugs } from '../../blog'
 
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
 import {H2, H3, H4, P, BlockQuote, Ul, Ol, Img, Code, Pre, Li} from '@/app/components'
-import { GetStaticPropsContext } from "next";
-
 
 
 
 export async function generateStaticParams() {
-    const posts = getSlugs();
-
-    return posts.map((post) => {
-        slug: post.slug
-    })
+    return getSlugs();
 }
 
-export async function generateMetadata({params}: {params: {post: string}}) {
-    const blogPost = getPost(params.post);
+export async function generateMetadata({params}: any) {
+    const blogPost = getPost(params.slug);
 
     return {
         title: blogPost.frontMatter.title,
@@ -30,9 +24,9 @@ export async function generateMetadata({params}: {params: {post: string}}) {
 
 
 
-export default function BlogPage({ params }: { params: { post: string }}) {
-    const post =  getPost(params.post)
-
+export default function BlogPage({params}: any) {
+    console.log(params)
+    const post = getPost(params.slug)
     return (
         <article className='text-dark-100 px-4 text-l w-full'>
             <h1 className='font-display text-4xl mb-4'>{post.frontMatter.title}</h1>
@@ -57,4 +51,4 @@ export default function BlogPage({ params }: { params: { post: string }}) {
             }} source={post.content}/>
         </article>
     )
-}   
+} 
