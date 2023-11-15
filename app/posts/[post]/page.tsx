@@ -1,19 +1,20 @@
 import Image from "next/image"
-import { getPost, getSlugs } from '../../blog'
+import { getPost, getPosts, getSlugs } from '../../blog'
 
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
 import {H2, H3, H4, P, BlockQuote, Ul, Ol, Img, Code, Pre, Li} from '@/app/components'
+import { GetStaticPropsContext } from "next";
 
 
 
 
 export async function generateStaticParams() {
-    const req = fetch("https://blog.emmalexandria.dev/api/posts");
+    const posts = getSlugs();
 
-    const posts = await req;
-
-    return await posts.json()
+    return posts.map((post) => {
+        slug: post.slug
+    })
 }
 
 export async function generateMetadata({params}: {params: {post: string}}) {
@@ -31,7 +32,6 @@ export async function generateMetadata({params}: {params: {post: string}}) {
 
 export default function BlogPage({ params }: { params: { post: string }}) {
     const post =  getPost(params.post)
-    
 
     return (
         <article className='text-dark-100 px-4 text-l w-full'>
