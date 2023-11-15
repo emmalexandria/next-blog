@@ -43,3 +43,13 @@ export function getPost(slug: string) {
         content
     }
 }
+
+export function getSlugs() {
+    const files = readdirSync(path.join("_posts"));
+
+    const paths = files.map(filename => ({
+        slug: filename.replace('.mdx', '')
+    }))
+
+    return paths;
+}

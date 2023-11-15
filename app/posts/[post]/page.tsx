@@ -1,26 +1,15 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
 import Image from "next/image"
-import { getPost } from '../../blog'
+import { getPost, getSlugs } from '../../blog'
 
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
 import {H2, H3, H4, P, BlockQuote, Ul, Ol, Img, Code, Pre, Li} from '@/app/components'
-import { usePathname } from 'next/navigation'
-import { useRouter } from 'next/router'
 
 
 
 
 export async function generateStaticParams() {
-    const files = fs.readdirSync(path.join('_posts'))
-
-    const paths = files.map(filename => ({
-        slug: filename.replace('.mdx', '')
-    }))
-
-    return paths
+    return getSlugs();
 }
 
 export async function generateMetadata({params}: {params: {post: string}}) {
