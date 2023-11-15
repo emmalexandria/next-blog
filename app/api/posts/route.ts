@@ -2,11 +2,10 @@ import { readdirSync, readFileSync } from "fs"
 import matter from "gray-matter"
 
 export async function GET(request: Request) {
-    const files = readdirSync("blogs")
+    const files = readdirSync("_posts")
 
-    const posts = files.forEach(filename => {
-        const content = readFileSync(`blogs/${filename}`, 'utf-8')
-
+    const posts = files.map(filename => {
+        const content = readFileSync(`_posts/${filename}`, 'utf-8')
         const frontMatter = matter(content);
 
         return {

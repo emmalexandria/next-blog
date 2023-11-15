@@ -9,7 +9,11 @@ import {H2, H3, H4, P, BlockQuote, Ul, Ol, Img, Code, Pre, Li} from '@/app/compo
 
 
 export async function generateStaticParams() {
-    return getSlugs();
+    const req = fetch("https://blog.emmalexandria.dev/api/posts");
+
+    const posts = await req;
+
+    return await posts.json()
 }
 
 export async function generateMetadata({params}: {params: {post: string}}) {
