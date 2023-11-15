@@ -2,7 +2,7 @@
 title: There will not be a year of the Linux desktop - for now
 date: 2023-04-24
 description: Before any individual year could hold a huge spike in Linux usage, we need to sort some things out.
-image: "/cuterdog.jpg"
+image: "/cuterdog.webp"
 dimensions: 
     - 1200 
     - 675
@@ -11,7 +11,7 @@ alt: "A chart showing the market share of various operating systems. Windows fal
 
 
 
-# Introduction
+## Introduction
 
 "The year of the Linux desktop" has been a common refrain of the Linux community for a while now. Every once in a while there's a post proclaiming that **this is the year**. That statement has a very bad track record:
 
@@ -28,11 +28,11 @@ For this reason, the Linux community has started claiming that its an inside jok
 
 I believe the Linux community is entirely out of touch with the reality of the common computer user. Linux is not "easy". I've used a pretty sizeable portion of popular distros (Mint, Ubuntu, Fedora, Debian, Arch, Pop!, Void, etc) and pretty much every popular desktop environment and window manager. I love Linux on the desktop. However, across every distro and DE I've tried, I see common issues that would deter regular users.
 
-# Package management and proprietary software
+## Package management and proprietary software
 
 This is a big one. The Linux community cannot for the love of god figure out how to distribute software. Package managers are a pretty common cited benefit of Linux, but in reality their benefits only come into play if the things you're installing are either FOSS, very common, or development libraries/CLI tools. 
 
-## Software distribution
+### Software distribution
 
 If you ask any regular human being to run this:
 ``` 
@@ -47,7 +47,7 @@ On MacOS, to install a program I drop the icon into the Applications folder. Is 
 
 They don't care because they have a model of how software is installed. On Windows, there's an installer. On MacOS, there's the icon drag and drop. With the introduction of the Microsoft Store and App Store on the Mac, some adjustment has been required, but those stores are so simple that it doesn't really matter. You just click the button.
 
-<img src="/cuterdog.jpg" width={1200} height={675}/>
+<Image src="/cuterdog.webp" alt="dropdown" width={1200} height={675}/>
 
 Linux has no such equivalent. It's incredibly difficult to build conceptual understanding without technical understanding. Even within the "intuitive" software style apps there's confusion.
 
@@ -83,21 +83,22 @@ I want to bring it back to the first example I gave of the Spotify installation.
 
 None of this should be necessary to know, but if you plan to install anything slightly uncommon and want to understand what is being done when you install it (which people do), it becomes necessary to know. The level of abstraction on Linux is often too low - and falls apart as soon as you exit the curated software experience. That curated software experience is *extremely* limited in scope.
 
-## Software people actually want
+### Software people actually want
 
 The unfortunate reality is that the software on Linux available for creative and professional work simply does not compete. The Adobe Creative Cloud is vast, and GIMP is not an alternative to Photoshop, no matter how hard Redditors will try to convince you it is. Video editing is a real sore spot. The best alternative is probably [Kdenlive](https://kdenlive.org/), which is... an option. Or you can use a version of Davinci Resolve so limited it might as well not exist. Last I checked it didn't have H.264/265 support. Yikes. Want an After Effects alternative? Too bad!
 
-<img src="/posts/linux-desktop/kdenlive.png" alt="Kdenlive screenshot"/>
+<img src="/cuterdog.webp" alt="kdenlive" width={1200} height={675}/>
+
 
 Microsoft 365 alternatives have more coverage, but it's generally the same story. Less features, less usable, less compatible.
 
 The unfortunate reality regardless, is that people want to use the software they know. ***They don't care*** if (big if) they can get the same results once they learn new software. ***They don't care*** about the ideology of free software. They aren't invested in Linux.
 
-# The experience of switching to Linux
+## The experience of switching to Linux
 
 In addition, actually switching to Linux is far from an easy task for most people. The barriers to entry are high.
 
-## Installing a distro
+### Installing a distro
 
 The first challenge any prospective Linux user has to overcome is distro selection. Once someone has figured out this is even a necessary step, they can find countless articles on the topic, recommending distros from Ubuntu to MX. The distro selection process is a *pain* from the perspective of a new user, as demonstrated in the first part of the [LTT Linux series](https://www.youtube.com/watch?v=0506yDSgU7M&t=5s). Before you blame Linus for this difficulty - remember that he's a tech-savvy guy. If he struggled with it, what chance do most users have? Distros usually have similar reported advantages, but few drawbacks are comprehensible to any user. What user is going to comprehend the reliance of Ubuntu on snaps? Or the way in which Linux Mint blocks them? What user will understand that Arch updates frequently, or that Debian updates rarely? Or even why any of this is important?
 
@@ -105,7 +106,7 @@ USB flashing is also a huge barrier. How many of the people you've met do you th
 
 I think it's important to remember that most people struggle to open Task Manager to close a background process - let alone install a Linux distribution.
 
-## Desktop environments 
+### Desktop environments 
 
 On the whole, they aren't satisfactory. They all generally have some combination of:
 1. Insane defaults
@@ -121,7 +122,7 @@ From our reduced pool, vanilla GNOME can be eliminated. The workflow is too dist
 
 To me that leaves KDE, precustomised GNOME (Ubuntu and Pop!), and Cinnamon. KDE and Cinnamon to attract Windows users, and GNOME to attract... MacOS users?. There's some jankiness across all 3, which I suppose is to be expected. Cinnamon is a throwback to 2012 out of the box, GNOME has its strange GNOME quirks, and KDE is just... visually busy. I have not used an uncustomised DE in years not just because I like customisation, but because in my opinion all DEs require it to match Windows and MacOS in usability and aesthetics.
 
-# Can we pick a technology please?
+## Can we pick a technology please?
 
 Linux on the desktop is currently quite fragmented. GTK4 is pulling further away from being a cross platform toolkit, Qt is very heavyweight - and is a commerical product with free use dependent on licensing your code under LGPL3 or GPL3. Pipewire and Pulseaudio are a constant sore spot, as are X11 and Wayland. Snap vs Flatpak is a perpetual source of annoying "free as in beer" quotes.
 
@@ -129,7 +130,7 @@ The work done by [freedesktop.org](https://www.freedesktop.org) to standardise e
 
 > If we can negotiate the scary political waters, I’d like to see the various X projects, freedesktop.org, and the desktop environments and applications work together on a single base desktop platform project.
 
-# Conclusion
+## Conclusion
 
 The core of the problem is - stick with me here - an inherent challenge of community organised open source projects. The people who work on Linux and its ecosystem are developers. They mostly get feedback from developers. As projects without a goal of profit, there is no consumer facing product development. 
 

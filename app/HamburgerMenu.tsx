@@ -3,17 +3,15 @@
 import { Icon } from "@iconify/react"
 import { MouseEventHandler, useState } from "react";
 
-export default function HamburgerMenu(props: { onChange: Function }) {
-    const [isOpen, setOpen] = useState(false);
-
+export default function HamburgerMenu(props: {isOpen: boolean, onChange: Function }) {
     const onClick = (e:any) => {
-        setOpen(!isOpen)
+        e.preventDefault()
         props.onChange();
     }
 
     return (
         <div onClick={onClick}>
-            {!isOpen ? (
+            {!props.isOpen ? (
                 <Icon icon="mdi:menu"  width={36}/>
             ) : (
                 <Icon icon="mdi:close" width={36}/>

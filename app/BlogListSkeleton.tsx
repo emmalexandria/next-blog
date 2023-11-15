@@ -1,7 +1,7 @@
 export default function BlogListSkeleton(props: {num: number}) {
     return (
         Array(props.num).fill(0).map((el, index) => (
-            <div>
+            <div key={index}>
                 <div className='my-4 flex flex-col bg-light-800 w-full gap-2 p-2 rounded'>
                     <div className='bg-light-700 w-full h-48 animate-pulse'></div>
                     <div className='flex flex-col gap-2 w-9/12'>

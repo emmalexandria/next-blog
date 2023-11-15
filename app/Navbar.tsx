@@ -18,23 +18,23 @@ export default function Navbar() {
     }
 
     return (
-        <div>
-            <div className="flex flex-row justify-between items-center p-4 text-dark-100">
-                <span className="flex flex-col">
+        <div className="w-full">
+            <div className="flex flex-row justify-between items-center px-4 py-2 text-dark-100">
+                <span className="flex flex-col h-fit grow">
                     <p className="text-xl font-light font-display">Emma Alexandria's</p>
                     <h1 className="text-5xl font-display font-black w-fit text-center">Blog</h1>
                 </span>
-                <HamburgerMenu onChange={menuClicked} />
+                <HamburgerMenu isOpen={menuOpen} onChange={menuClicked} />
             </div>
             {menuOpen ? (
-                <nav className="fixed w-full h-fit z-10 text-dark-100">
+                <nav className="absolute w-full h-fit z-10 text-dark-100">
                     <ul>
                         <NavItem href="/">Home</NavItem>
                         <NavItem href="/photos">Photos</NavItem>
                         <NavItem href="/contact">Contact</NavItem>
                     </ul>
                 </nav>
-            ): <></>}
+            ): undefined}
 
 
 
