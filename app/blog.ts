@@ -14,10 +14,10 @@ export interface IPost {
 }
 
 export async function getPosts(): Promise<{meta: IPost, slug: string}[]> {
-    const files = readdirSync(path.join("posts"))
+    const files = readdirSync(path.join("_posts"))
     const posts = files.map(filename => {
   
-      const fileContent = readFileSync(path.join("posts", filename), 'utf-8')
+      const fileContent = readFileSync(path.join("_posts", filename), 'utf-8')
       const { data: frontMatter } = matter(fileContent)
 
       return {
@@ -33,7 +33,7 @@ export async function getPosts(): Promise<{meta: IPost, slug: string}[]> {
   
 
 export function getPost(slug: string) {
-    const markdownFile = readFileSync(path.join('posts',`${slug}.mdx`), 'utf-8')
+    const markdownFile = readFileSync(path.join('_posts',`${slug}.mdx`), 'utf-8')
 
     const { data: frontMatter, content } = matter(markdownFile)
 

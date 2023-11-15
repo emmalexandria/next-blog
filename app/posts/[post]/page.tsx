@@ -14,7 +14,7 @@ import { useRouter } from 'next/router'
 
 
 export async function generateStaticParams() {
-    const files = fs.readdirSync(path.join('posts'))
+    const files = fs.readdirSync(path.join('_posts'))
 
     const paths = files.map(filename => ({
         slug: filename.replace('.mdx', '')
