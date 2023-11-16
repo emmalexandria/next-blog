@@ -35,7 +35,7 @@ export default function BlogPage({ params }: { params: { slug: string } }) {
     if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
     const MDXContent = useMDXComponent(post.body.code)
     return (
-        <article className='text-dark-100 px-4 text-l w-full'>
+        <article className='text-dark-100 px-4 text-l w-full md:w-1/2 md:mx-auto lg:w-1/3 '>
             <h1 className='font-display text-4xl mb-4'>{post.title}</h1>
             {post.image ?
                 <Image src={post.image} alt={post.alt as string} width={post.width} height={post.height} priority={true} />
