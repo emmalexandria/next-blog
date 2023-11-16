@@ -7,15 +7,16 @@
     color: theme('colors.dark.100')
 }
 
+
 ::-webkit-scrollbar {
-    width: 12px;               /* width of the entire scrollbar */
-  }
-  
+    width: 12px;
+}
+
 ::-webkit-scrollbar-track {
-    background: theme('colors.light.700');        /* color of the tracking area */
-  }
-  
+    background: theme('colors.light.700');
+}
+
 ::-webkit-scrollbar-thumb {
-    background-color: theme('colors.accent.900');    /* color of the scroll thumb */
-    border-radius: 4px;       /* roundness of the scroll thumb */  /* creates padding around scroll thumb */
-  }
+    background-color: theme('colors.accent.900');
+}
+

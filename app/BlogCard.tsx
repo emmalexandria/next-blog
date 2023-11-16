@@ -6,7 +6,7 @@ import BlogLink from "./BlogLink";
 
 export default function BlogCard(props: { post: Post, priority: boolean }) {
     return (
-        <div className="font-body text-black-100 px-4 py-2 bg-light-800 rounded">
+        <div className="font-body text-black-100 p-4 bg-light-800 rounded">
                 {props.post.image ? (
                     <div>
                         <Image

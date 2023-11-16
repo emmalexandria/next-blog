@@ -69,7 +69,7 @@ export function Code(props) {
 
 export function Pre(props) {
     return (
-        <pre className="overflow-scroll mb-2 bg-light-700 px-4 py-2 rounded">
+        <pre className="overflow-x-auto mb-2 bg-light-700 px-4 py-2 rounded scrollbar-thin scrollbar-thumb-accent-900 scrollbar-track-light-600">
             {props.children}
         </pre>
     )

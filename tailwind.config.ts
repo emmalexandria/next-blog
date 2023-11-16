@@ -55,7 +55,9 @@ const config: Config = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
   future: {
     hoverOnlyWhenSupported: true,
   }
