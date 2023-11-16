@@ -1,42 +1,37 @@
 import Image from "next/image"
-import { getPost, getSlugs } from '../../blog'
-
-import { MDXRemote } from 'next-mdx-remote/rsc'
 
 import {H2, H3, H4, P, BlockQuote, Ul, Ol, Img, Code, Pre, Li} from '@/app/components'
+import { allPosts } from "@/.contentlayer/generated"
+import { format, parseISO } from "date-fns"
+import { useMDXComponent } from "next-contentlayer/hooks"
 
 
 
-export async function generateStaticParams() {
-    return getSlugs();
-}
+export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
-export async function generateMetadata({params}: any) {
-    const blogPost = getPost(params.slug);
-
-    return {
-        title: blogPost.frontMatter.title,
-        description: blogPost.frontMatter.description,
-        metadataBase: new URL("https://blog.emmalexandria.dev"),
-        openGraph: [blogPost.frontMatter.image],
-    }
+export const generateMetadata = ({ params }: { params: { slug: string } }) => {
+  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
+  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+  return { title: post.title }
 }
 
 
 
-export default function BlogPage({params}: any) {
-    console.log(params)
-    const post = getPost(params.slug)
+
+export default function BlogPage({params}: {params: {slug: string}}) {
+    const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
+    if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+    const MDXContent = useMDXComponent(post.body.code)
     return (
         <article className='text-dark-100 px-4 text-l w-full'>
-            <h1 className='font-display text-4xl mb-4'>{post.frontMatter.title}</h1>
-            {post.frontMatter.image ? 
-            <Image src={post.frontMatter.image} alt={post.frontMatter.alt} width={post.frontMatter.dimensions[0]} height={post.frontMatter.dimensions[1]} priority={true}/>
+            <h1 className='font-display text-4xl mb-4'>{post.title}</h1>
+            {post.image ? 
+            <Image src={post.image} alt={post.alt as string} width={post.width} height={post.height} priority={true}/>
             : undefined
             }
-            <p className="font-body mt-2">{post.frontMatter.date.toDateString()}</p>
+            <time className="font-body mt-2"> {format(parseISO(post.date), 'LLLL d, yyyy')}</time>
             <hr className="border-light-600 my-4"/>
-            <MDXRemote components={{
+            <MDXContent components={{
                 h2: H2,
                 h3: H3,
                 h4: H4,
@@ -48,7 +43,21 @@ export default function BlogPage({params}: any) {
                 pre: Pre,
                 code: Code,
                 Image: Img,
-            }} source={post.content}/>
+            }}/>
+            {/* <div className="[&>*]:mb-3 [&>*:last-child]:mb-0" dangerouslySetInnerHTML={{ __html: post.body.html }} /> */}
+            {/* <MDXRemote components={{
+                h2: H2,
+                h3: H3,
+                h4: H4,
+                p: P,
+                blockquote: BlockQuote,
+                ul: Ul,
+                ol: Ol,
+                li: Li,
+                pre: Pre,
+                code: Code,
+                Image: Img,
+            }} source={post.content}/> */}
         </article>
     )
 } 

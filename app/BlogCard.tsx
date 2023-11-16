@@ -1,17 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
-import { IPost } from "./blog";
+import { Post } from "@/.contentlayer/generated";
+import { format, parseISO } from "date-fns";
 
-export default function BlogCard(props: { post: { meta: IPost, slug: string }, priority :boolean}) {
+export default function BlogCard(props: {post: Post, priority :boolean}) {
     return (
         <div className="font-body text-black-100 border border-2 p-4 border-light-700 rounded">
-            <Link href={`posts/${props.post.slug}`}>
-                {props.post.meta.image ? (
+            <Link href={props.post.url}>
+                {props.post.image ? (
                     <Image
-                        src={props.post.meta.image}
-                        alt={props.post.meta.alt}
-                        width={props.post.meta.dimensions[0]}
-                        height={props.post.meta.dimensions[1]}
+                        src={props.post.image}
+                        alt={props.post.alt as string}
+                        width={props.post.width}
+                        height={props.post.height}
                         priority={props.priority} 
                         />
                 
@@ -19,10 +20,10 @@ export default function BlogCard(props: { post: { meta: IPost, slug: string }, p
                     : null
                 }
                 <h1 className="font-display text-3xl my-2">
-                    {props.post.meta.title}
+                    {props.post.title}
                 </h1>
-                <p className="mb-2">{props.post.meta.description}</p>
-                <p>{props.post.meta.date.toDateString()}</p>
+                <p className="mb-2">{props.post.description}</p>
+                <p>{format(parseISO(props.post.date), 'LLLL d, yyyy')}</p>
             </Link>
         </div>
     )
