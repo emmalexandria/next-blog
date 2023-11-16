@@ -28,8 +28,8 @@ export default function Navbar() {
             </div>
             {menuOpen ? (
                 <nav className="absolute w-full h-fit z-10 text-dark-100">
-                    <ul>
-                        <NavItem href="/">Home</NavItem>
+                    <ul className="divide-y-4 divide-light-700">
+                        {pathname != "/" && <NavItem href="/">Home</NavItem>}
                         <NavItem href="/photos">Photos</NavItem>
                         <NavItem href="/contact">Contact</NavItem>
                     </ul>

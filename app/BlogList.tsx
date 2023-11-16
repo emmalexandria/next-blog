@@ -8,7 +8,7 @@ export default async function BlogList() {
   const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
 
   return (
-    <ul>
+    <ul className="space-y-2">
       {posts.map((post, idx) => (
         <li key={idx} className="text-dark-100">
           <BlogCard post={post} priority={true}/>
