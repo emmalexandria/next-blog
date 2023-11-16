@@ -6,7 +6,9 @@ import type { Metadata } from "next";
  
 export const metadata: Metadata = {
   title: "Emma Alexandria's Blog",
-  description: "I'm a software developer from Cape Town. I work in web development."
+  description: "I'm a software developer from Cape Town. I work in web development.",
+  creator: "Emma Alexandria",
+  keywords: ["Blog", "Full stack developer", "South Africa"]
 }
 
 export default function Home() {

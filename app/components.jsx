@@ -3,19 +3,19 @@ import Image from "next/image"
 
 export function H2(props) {
     return (
-        <h2 id={props.children} className="font-display text-3xl mb-1.5 mt-2.5">{props.children}</h2>
+        <h2 id={props.children} className="font-display text-3xl mb-1.5 mt-2">{props.children}</h2>
     )
 }
 
 export function H3(props) {
     return (
-        <h3 id={props.children} className="font-display text-2xl">{props.children}</h3>
+        <h3 id={props.children} className="font-display text-2xl mb-1 mt-1.5">{props.children}</h3>
     )
 }
 
 export function H4(props) {
     return (
-        <h4 id={props.children} className="font-display text-xl">{props.children}</h4>
+        <h4 id={props.children} className="font-display text-xl mb-0.5 mt-1">{props.children}</h4>
     )
 }
 
@@ -69,7 +69,7 @@ export function Code(props) {
 
 export function Pre(props) {
     return (
-        <pre className="overflow-scroll mb-2">
+        <pre className="overflow-scroll mb-2 bg-light-700 px-4 py-2 rounded">
             {props.children}
         </pre>
     )
