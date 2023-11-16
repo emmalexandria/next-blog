@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::selection {
+    background: theme('colors.accent.900');
+    color: theme('colors.dark.100')
+}
+
+::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+  }
+  
+::-webkit-scrollbar-track {
+    background: theme('colors.light.700');        /* color of the tracking area */
+  }
+  
+::-webkit-scrollbar-thumb {
+    background-color: theme('colors.accent.900');    /* color of the scroll thumb */
+    border-radius: 4px;       /* roundness of the scroll thumb */  /* creates padding around scroll thumb */
+  }
