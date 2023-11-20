@@ -3,25 +3,25 @@ import Image from "next/image"
 
 export function H2(props) {
     return (
-        <h2 id={props.children} className="font-display text-3xl mb-1.5 mt-2">{props.children}</h2>
+        <h2 id={props.children} className="font-display text-3xl mb-2 mt-2.5">{props.children}</h2>
     )
 }
 
 export function H3(props) {
     return (
-        <h3 id={props.children} className="font-display text-2xl mb-1 mt-1.5">{props.children}</h3>
+        <h3 id={props.children} className="font-display text-2xl mb-1.5 mt-2">{props.children}</h3>
     )
 }
 
 export function H4(props) {
     return (
-        <h4 id={props.children} className="font-display text-xl mb-0.5 mt-1">{props.children}</h4>
+        <h4 id={props.children} className="font-display text-xl mb-1 mt-1.5">{props.children}</h4>
     )
 }
 
 export function P(props) {
     return (
-        <p className="font-body mb-2">{props.children}</p>
+        <p className="font-body mb-2 leading-relaxed">{props.children}</p>
     )
 }
 
@@ -63,6 +63,14 @@ export function Code(props) {
         <code>
             {props.children}
         </code>
+    )
+}
+
+export function A(props) {
+    return (
+        <a className="text-accent-300 visited:text-accent-200 underline underline-offset-2" href={props.href} target={props.target}>
+            {props.children}
+        </a>
     )
 }
 
