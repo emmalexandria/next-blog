@@ -22,9 +22,9 @@ export default function BlogCard(props: { post: Post, priority: boolean }) {
                 )
                     : null
                 }
-                <h1 className="font-display text-3xl">
+                <h2 className="font-display text-3xl">
                     {props.post.title}
-                </h1>
+                </h2>
                 <p className="font-light mb-2">{format(parseISO(props.post.date), 'LLLL d, yyyy')}</p>
                 <p className="mb-2">{props.post.description}</p>
                 <Link className="block" href={props.post.url}><BlogLink/></Link>
