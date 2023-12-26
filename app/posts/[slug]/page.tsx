@@ -4,6 +4,7 @@ import { H2, H3, H4, P, BlockQuote, Ul, Ol, Img, Code, Pre, Li, A } from '@/app/
 import { allPosts } from "@/.contentlayer/generated"
 import { format, parseISO } from "date-fns"
 import { useMDXComponent } from "next-contentlayer/hooks"
+import DarkModeWarning from "../../components/DarkModeWarning"
 
 
 
@@ -35,10 +36,10 @@ export default function BlogPage({ params }: { params: { slug: string } }) {
     if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
     const MDXContent = useMDXComponent(post.body.code)
     return (
-        <article className='text-dark-100 px-4 pb-8 text-l w-full md:w-1/2 md:mx-auto lg:w-1/3 '>
+        <article className='text-dark-900 dark:text-light-800 px-4 pb-8 text-l w-full md:w-1/2 md:mx-auto lg:w-2/5 '>
             <h1 className='font-display text-4xl mb-4'>{post.title}</h1>
             {post.image ?
-                <Image src={post.image} alt={post.alt as string} width={post.width} height={post.height} priority={true} />
+                <Image className="rounded" src={post.image} alt={post.alt as string} width={post.width} height={post.height} priority={true} />
                 : undefined
             }
             <p className="font-body mt-2 font-light"> {format(parseISO(post.date), 'LLLL d, yyyy')}</p>
@@ -71,6 +72,8 @@ export default function BlogPage({ params }: { params: { slug: string } }) {
                 code: Code,
                 Image: Img,
             }} source={post.content}/> */}
+            <DarkModeWarning/>
         </article>
+
     )
 } 

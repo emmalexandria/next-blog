@@ -10,7 +10,7 @@ export default async function BlogList() {
   return (
     <ul className="space-y-2">
       {posts.map((post, idx) => (
-        <li key={idx} className="text-dark-100">
+        <li key={idx} className="">
           <BlogCard post={post} priority={true}/>
         </li>
     ))}

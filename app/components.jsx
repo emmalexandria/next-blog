@@ -1,5 +1,6 @@
 import { ImgHTMLAttributes } from "react"
 import Image from "next/image"
+import StyledLink from "./components/StyledLink"
 
 export function H2(props) {
     return (
@@ -68,9 +69,9 @@ export function Code(props) {
 
 export function A(props) {
     return (
-        <a className="text-accent-300 visited:text-accent-200 underline underline-offset-2" href={props.href} target={props.target}>
+        <StyledLink className="underline-offset-2" href={props.href} target={props.target}>
             {props.children}
-        </a>
+        </StyledLink>
     )
 }
 

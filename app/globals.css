@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-::selection {
-    background: theme('colors.accent.900');
-    color: theme('colors.dark.100')
-}
 
 
 ::-webkit-scrollbar {

@@ -6,10 +6,11 @@ import BlogLink from "./BlogLink";
 
 export default function BlogCard(props: { post: Post, priority: boolean }) {
     return (
-        <div className="font-body text-black-100 p-4 bg-light-800 rounded">
+        <div className="font-body p-4 bg-light-800 dark:bg-dark-800 rounded-md">
                 {props.post.image ? (
-                    <div>
+                    <div className="overflow-clip rounded">
                         <Image
+                            className="w-full h-auto object-contain rounded"
                             src={props.post.image}
                             alt={props.post.alt as string}
                             width={props.post.width}
@@ -24,9 +25,9 @@ export default function BlogCard(props: { post: Post, priority: boolean }) {
                 <h1 className="font-display text-3xl">
                     {props.post.title}
                 </h1>
-                <p className="font-light">{format(parseISO(props.post.date), 'LLLL d, yyyy')}</p>
-                <p className="mb-1">{props.post.description}</p>
-                <Link href={props.post.url}><BlogLink/></Link>
+                <p className="font-light mb-2">{format(parseISO(props.post.date), 'LLLL d, yyyy')}</p>
+                <p className="mb-2">{props.post.description}</p>
+                <Link className="block" href={props.post.url}><BlogLink/></Link>
         </div>
     )
 

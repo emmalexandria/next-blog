@@ -12,19 +12,20 @@ const config: Config = {
         accentOnContainer: '#2F1204',
         accentOnContainerAlt: '#331405',
         dark: {
-          50: '#0E0501',
-          100: '#261E1A',
-          200: '#3E3734',
-          300: '#56504D',
-          400: '#6E6967',
+          50: '#E0DFDE',
+          100: '#D6D5D4',
+          200: '#C2C0BF',
+          300: '#AFABAA',
+          400: '#9B9795',
           500: '#878280',
-          600: '#9F9B99',
-          700: '#B7B4B3',
-          800: '#CFCDCC',
-          900: '#E7E6E6',
+          600: '#6A6665',
+          700: '#4E4A49',
+          800: '#312F2E',
+          900: '#141313',
+          950: '#050505'
         },
         light: {
-          50:  '#333232',
+          50: '#333232',
           100: '#4C4C4B',
           200: '#666564',
           300: '#807E7D',
@@ -36,7 +37,7 @@ const config: Config = {
           900: '#FFFCFA',
         },
         accent: {
-          50:  '#762e0a',
+          50: '#762e0a',
           100: '#8E370B',
           200: '#A5400D',
           300: '#BD490F',
@@ -60,6 +61,7 @@ const config: Config = {
   ],
   future: {
     hoverOnlyWhenSupported: true,
-  }
+  },
+  darkMode: 'class',
 }
 export default config

@@ -2,9 +2,11 @@ import type { Metadata } from 'next'
 import { Merriweather, Open_Sans } from 'next/font/google'
 import './globals.css'
 import Navbar from './Navbar'
+import { Providers } from './providers'
+import { loadIcons } from '@iconify/react/dist/iconify.js'
 
-const merriweather = Merriweather({ subsets: ['latin'] , weight: ["300", "400", "700", "900"], variable: "--font-display", display: 'swap'})
-const openSans = Open_Sans({subsets: ['latin'], variable: "--font-body", display: 'swap'})
+const merriweather = Merriweather({ subsets: ['latin'], weight: ["300", "400", "700", "900"], variable: "--font-display", display: 'swap' })
+const openSans = Open_Sans({ subsets: ['latin'], variable: "--font-body", display: 'swap' })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,16 +20,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${merriweather.variable} ${openSans.variable}`}>
-      <body className="bg-light-900">
-        <header>
-          <Navbar/>
-        </header>
-        <main>
-          {children}
-        </main>
-        <footer>
+      <body className='bg-light-900 dark:bg-dark-900 text-dark-900 dark:text-light-800 selection:bg-accent-500 selection:text-light-900 selection:dark:bg-accent-900 selection:dark:text-dark-900'>
+        <Providers>
+          <header>
+            <Navbar />
+          </header>
+          <main>
+            {children}
+          </main>
+          <footer>
 
-        </footer>
+          </footer>
+        </Providers>
       </body>
     </html>
   )

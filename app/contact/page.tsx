@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import ContactCard from "../ContactCard";
+import ContactCard from "./ContactCard";
 
 export const metadata: Metadata = {
     title: "Contact me",
@@ -11,11 +11,12 @@ export const metadata: Metadata = {
 export default function ContactPage() {
     return (
         <article className="px-4 py-4 w-fit mx-auto">
-            <h1 className="font-display font-bold text-4xl md:text-5xl mb-4 text-center text-dark-100">Contact me</h1>
+            <h1 className="font-display font-bold text-4xl md:text-5xl mb-4 text-center">Contact me</h1>
             <div className="w-fit mx-auto">
-                <ContactCard href="https://www.emmalexandria.dev" icon="mdi:briefcase">Portfolio</ContactCard>
+                <ContactCard href="mailto:emma.jellemabutler@gmail.com" icon="material-symbols:mail">Email</ContactCard>
                 <ContactCard href="https://www.github.com/emmalexandria" icon="mdi:github">Github</ContactCard>
                 <ContactCard href="https://www.linkedin.com/in/emma-jb" icon="mdi:linkedin">LinkedIn</ContactCard>
+                <ContactCard href="https://www.emmalexandria.dev" icon="mdi:briefcase">Portfolio</ContactCard>
             </div>
         </article>
     )
