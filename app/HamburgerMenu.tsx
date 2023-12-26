@@ -10,11 +10,11 @@ export default function HamburgerMenu(props: {isOpen: boolean, onChange: Functio
     }
 
     return (
-        <div onClick={onClick}>
+        <div onClick={onClick} className="text-3xl">
             {!props.isOpen ? (
-                <Icon icon="mdi:menu"  width={36}/>
+                <Icon icon="mdi:menu"/>
             ) : (
-                <Icon icon="mdi:close" width={36}/>
+                <Icon icon="mdi:close"/>
             )}
         </div>
     )

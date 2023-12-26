@@ -28,8 +28,9 @@ export default function Navbar() {
                         <h1 className="text-5xl font-display font-black w-fit text-center">Blog</h1>
                     </Link>
                 </span>
-                <span className="block md:hidden">
+                <span className="flex flex-row items-center md:hidden">
                     <HamburgerMenu isOpen={menuOpen} onChange={menuClicked} />
+                    <DarkModeSwitcher/>
                 </span>
 
                 <nav className="hidden md:block">
@@ -47,7 +48,6 @@ export default function Navbar() {
                     <ul className="">
                         <NavItem href="/">Home</NavItem>
                         <NavItem href="/contact">Contact</NavItem>
-                        <DarkModeSwitcher/>
                     </ul>
                 </nav>
             ) : undefined}
