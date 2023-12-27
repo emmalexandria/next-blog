@@ -12,7 +12,8 @@ export const Post = defineDocumentType(() => ({
     image: {type: 'string', required: false},
     alt: {type: 'string', required: false},
     width: {type: 'number', required: false},
-    height: {type: 'number', required:false}
+    height: {type: 'number', required:false},
+    draft: {type: 'boolean', required: false}
   },
   computedFields: {
     url: { type: 'string', resolve: (post) => `/posts/${post._raw.flattenedPath}` },

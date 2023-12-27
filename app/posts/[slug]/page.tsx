@@ -5,6 +5,7 @@ import { allPosts } from "@/.contentlayer/generated"
 import { format, parseISO } from "date-fns"
 import { useMDXComponent } from "next-contentlayer/hooks"
 import DarkModeWarning from "../../components/DarkModeWarning"
+import { redirect } from "next/navigation"
 
 
 
@@ -22,7 +23,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
         keywords: post.tags,
         openGraph: {
             images: [post.image]
-        },
+        },  
         
        
     }
@@ -34,6 +35,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
 export default function BlogPage({ params }: { params: { slug: string } }) {
     const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
     if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+
     const MDXContent = useMDXComponent(post.body.code)
     return (
         <article className='text-dark-900 dark:text-light-800 px-4 pb-8 text-l w-full md:w-1/2 md:mx-auto lg:w-2/5 '>

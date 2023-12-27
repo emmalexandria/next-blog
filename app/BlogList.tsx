@@ -5,7 +5,12 @@ import { allPosts } from 'contentlayer/generated'
 
 
 export default async function BlogList() {
-  const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+  let posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date))).filter((p) => {
+    if(p.draft != undefined) {
+      return !p.draft
+    }
+    return true
+  })
 
   return (
     <ul className="space-y-2">
