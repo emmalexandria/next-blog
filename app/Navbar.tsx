@@ -6,14 +6,16 @@ import NavItem from "./NavItem";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import DarkModeSwitcher from "./DarkModeSwitcher";
+import { useTheme } from "next-themes";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const pathname = usePathname()
+    const {systemTheme, theme, setTheme} = useTheme()
 
     useEffect(() => {
         setMenuOpen(false)
-    }, [pathname])
+    }, [pathname, theme])
 
     const menuClicked = () => {
         setMenuOpen(!menuOpen);
@@ -30,7 +32,6 @@ export default function Navbar() {
                 </span>
                 <span className="flex flex-row items-center md:hidden">
                     <HamburgerMenu isOpen={menuOpen} onChange={menuClicked} />
-                    <DarkModeSwitcher/>
                 </span>
 
                 <nav className="hidden md:block">
@@ -44,10 +45,14 @@ export default function Navbar() {
                 </nav>
             </div>
             {menuOpen ? (
-                <nav className="absolute w-full h-fit bg-light-900 dark:bg-dark-900 z-10 border-t-2 border-b-2 border-light-700">
+                <nav className="absolute w-full h-fit bg-light-900 dark:bg-dark-900 z-10 border-t-2 border-b-2 border-light-700 dark:border-none">
                     <ul className="">
                         <NavItem href="/">Home</NavItem>
                         <NavItem href="/contact">Contact</NavItem>
+                        <li className="p-4">
+                        <DarkModeSwitcher/>
+                        </li>
+                    
                     </ul>
                 </nav>
             ) : undefined}
